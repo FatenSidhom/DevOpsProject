@@ -1,7 +1,6 @@
 package tn.esprit.rh.achat.controllers;
 
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.services.ICategorieProduitService;
@@ -13,14 +12,12 @@ import java.util.List;
 @RequestMapping("/categorieProduit")
 public class CategorieProduitController {
 
-	@Autowired
 	ICategorieProduitService categorieProduitService;
 	
 	@GetMapping("/retrieve-all-categorieProduit")
 	@ResponseBody
 	public List<CategorieProduit> getCategorieProduit() {
-		List<CategorieProduit> list = categorieProduitService.retrieveAllCategorieProduits();
-		return list;
+		return categorieProduitService.retrieveAllCategorieProduits();
 	}
 
 	@GetMapping("/retrieve-categorieProduit/{categorieProduit-id}")
@@ -32,8 +29,7 @@ public class CategorieProduitController {
 	@PostMapping("/add-categorieProduit")
 	@ResponseBody
 	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
-		CategorieProduit categorieProduit = categorieProduitService.addCategorieProduit(cp);
-		return categorieProduit;
+		return categorieProduitService.addCategorieProduit(cp);
 	}
 
 	@DeleteMapping("/remove-categorieProduit/{categorieProduit-id}")

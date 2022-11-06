@@ -1,7 +1,6 @@
 package tn.esprit.rh.achat.controllers;
 
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.rh.achat.entities.Facture;
@@ -17,14 +16,12 @@ import java.util.List;
 @CrossOrigin("*")
 public class FactureRestController {
 
-    @Autowired
     IFactureService factureService;
 
     @GetMapping("/retrieve-all-factures")
     @ResponseBody
     public List<Facture> getFactures() {
-        List<Facture> list = factureService.retrieveAllFactures();
-        return list;
+        return factureService.retrieveAllFactures();
     }
 
     @GetMapping("/retrieve-facture/{facture-id}")
@@ -36,8 +33,8 @@ public class FactureRestController {
     @PostMapping("/add-facture")
     @ResponseBody
     public Facture addFacture(@RequestBody Facture f) {
-        Facture facture = factureService.addFacture(f);
-        return facture;
+        return factureService.addFacture(f);
+
     }
 
     @PutMapping("/cancel-facture/{facture-id}")
