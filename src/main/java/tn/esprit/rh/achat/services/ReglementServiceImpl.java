@@ -23,21 +23,23 @@ public class ReglementServiceImpl implements IReglementService {
 
 	@Override
 	public Reglement addReglement(Reglement r) {
-        reglementRepository.save(r);
+		reglementRepository.save(r);
 		return r;
 	}
 
 	@Override
 	public Reglement retrieveReglement(Long id) {
-		Reglement reglement = reglementRepository.findById(id).orElse(null);
-		
-		return reglement;
+		return reglementRepository.findById(id).orElse(null);
+
+
 	}
 
 	@Override
 	public List<Reglement> retrieveReglementByFacture(Long idFacture) {
-		List<Reglement> reglements= reglementRepository.retrieveReglementByFacture(idFacture);
-		return reglements;
+		return reglementRepository.retrieveReglementByFacture(idFacture);
+
+
+
 	}
 
 	@Override
